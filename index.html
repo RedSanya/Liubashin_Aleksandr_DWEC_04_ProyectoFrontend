@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>AnimeGalaxy</title>
+   <link rel="stylesheet" href="styles/styles.css">
+   <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+</head>
+
+<body>
+   <!-- ********Cabecera******** -->
+   <header>
+      <nav class="menu">
+
+         <a href="index.html" id="logo">
+            <!-- <img src="images/logo.webp" alt="logo de AnimeGalaxy"> -->
+         </a>
+
+         <ul>
+            <li><a href="index.html?categoria=top100">Top 100</a></li>
+            <li><a href="index.html?categoria=mejorCalificados">Recomendados</a></li>
+            <li><a href="index.html?categoria=ongoing">En Emisión</a></li>
+            <li><a href="index.html?categoria=random">Aleatorio</a></li>
+         </ul>
+
+         <form class="buscar" id="buscarForm">
+            <input type="text" id="animeInput" placeholder="Buscar anime..." name="q">
+            <button type="submit">
+               <!-- <img src="icons/lupa.png" alt="Buscar" style="height: 20px;"> -->
+            </button>
+         </form>
+
+         <div class="login-boton">
+            <a href="html/login.html">
+               <img src="icons/usuario.png" alt="login">
+            </a>
+         </div>
+      </nav>
+   </header>
+
+   <!-- ********Main******** -->
+   <div class="content">
+      <main>
+         <h1>Anime</h1>
+
+         <!-- <section id="resultado"></section> -->
+
+         <section class="catalogo" id="resultado">
+
+         </section>
+
+         <nav id="page-nav" class="paginacion"></nav>
+      </main>
+
+      <!-- ----------Aside----------- -->
+      <aside>
+         <h2>Noticias</h2>
+         <article class="card-news">
+            <h3>Noticia 1</h3>
+            <p>Detalles breves sobre la noticia 1.</p>
+         </article>
+         <article class="card-news">
+            <h3>Noticia 2</h3>
+            <p>Detalles breves sobre la noticia 2.</p>
+         </article>
+         <article class="card-news">
+            <h3>Noticia 3</h3>
+            <p>Detalles breves sobre la noticia 3.</p>
+         </article>
+      </aside>
+
+   </div>
+
+   <!-- ********Footer******** -->
+   <footer>
+      <p>Todos los videos en el sitio AnimeGalaxy se proporcionan solo con fines informativos.</p>
+
+      <nav>
+         <ul>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Para los titulares de derechos</a></li>
+            <li><a href="#">Contactos</a></li>
+         </ul>
+      </nav>
+
+      <p>2025</p>
+   </footer>
+
+   <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
