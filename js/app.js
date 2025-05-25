@@ -41,3 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
    document.getElementById("buscarForm").addEventListener("submit", handleSearch);
    cargarContenidoDesdeURL(); // Cargar recientes por defecto si no hay otra opción en la URL
 });
+
+//Evento para mostrar la pagina con Anime
+// document.getElementsByClassName("anime-info").document.addEventListener("click", verAnime);

@@ -38,6 +38,12 @@ h1,section{
    margin: 1rem;
    padding: 1rem;
 }
+
+/* #layout-header,#layout-footer{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+} */
 /* -----------Header----------------- */
 header{
    width: 80%;
@@ -50,8 +56,6 @@ header{
    padding: 1rem;
    box-sizing: border-box;
    border-radius: 0.15rem;
-
-
 }
 .sticky{
    width: 100%;

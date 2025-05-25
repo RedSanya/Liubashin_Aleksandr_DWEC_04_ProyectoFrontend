@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Ver Anime</title>
+   <link rel="stylesheet" href="../styles/styles.css" />
+</head>
+
+<body>
+   <!-- Secciones reutilizadas -->
+   <header id="layout-header"></header>
+
+   <div class="content">
+      <main>
+         <section id="anime-detalle"></section>
+         <section id="reproductor"></section>
+         <section id="comentarios">
+            <h2>Comentarios</h2>
+            <div id="comentarios-lista"></div>
+         </section>
+      </main>
+
+      <aside id="layout-aside"></aside>
+   </div>
+
+   <footer id="layout-footer"></footer>
+
+   <!-- Scripts -->
+   <script type="module" src="../js/anime-detalles.js"></script>
+   <script>
+      async function cargarLayout() {
+         const cargar = async (id, archivo) => {
+            const res = await fetch(archivo);
+            const html = await res.text();
+            document.getElementById(id).innerHTML = html;
+         };
+
+         await cargar("layout-header", "../partials/header.html");
+         await cargar("layout-aside", "../partials/aside.html");
+         await cargar("layout-footer", "../partials/footer.html");
+      }
+
+      cargarLayout();
+   </script>
+</body>
+
+</html>
