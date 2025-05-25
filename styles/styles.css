@@ -234,6 +234,10 @@ aside {
    box-shadow: -2px 0 6px rgba(0, 0, 0, 0.1);
 }
 
+aside h2{
+   margin-bottom: 1.5rem;
+}
+
 .card-news {
    background-color: var(--main-bg);
    color: var(--text-color);
@@ -241,14 +245,22 @@ aside {
    padding: 1rem;
    margin-bottom: 1rem;
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+   transition: 0.3s ease;
 }
 
 .card-news h3 {
    margin-bottom: 0.5rem;
+   color: var(--main-accent);
 }
 
 .card-news p {
    margin: 0;
+}
+
+aside .card-news:hover{
+   background-color: var(--highlight-color);
+   scale: 1.1;
 }
 /* -------Footer--------- */
 footer{

@@ -29,23 +29,8 @@
    <footer id="layout-footer"></footer>
 
    <!-- Scripts -->
-   <script type="module" src="../js/anime-detalles.js"></script>
-   <!-- <script type="module" src="../js/app.js"></script> -->
-   <script>
-      async function cargarLayout() {
-         const cargar = async (id, archivo) => {
-            const res = await fetch(archivo);
-            const html = await res.text();
-            document.getElementById(id).innerHTML = html;
-         };
-
-         await cargar("layout-header", "../partials/header.html");
-         await cargar("layout-aside", "../partials/aside.html");
-         await cargar("layout-footer", "../partials/footer.html");
-      }
-
-      cargarLayout();
    </script>
+   <script type="module" src="../js/anime-detalles.js"></script>
 </body>
 
 </html>

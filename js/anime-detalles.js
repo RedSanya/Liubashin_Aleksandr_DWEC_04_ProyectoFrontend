@@ -3,12 +3,30 @@ import { handleSearch } from "./app.js";
 const params = new URLSearchParams(window.location.search);
 const animeId = params.get("id");
 
+async function cargarLayout() {
+   const cargar = async (id, archivo) => {
+      const res = await fetch(archivo);
+      const html = await res.text();
+      const contenedor = document.getElementById(id);
+      if (contenedor) contenedor.innerHTML = html;
+   };
+
+   await cargar("layout-header", "../partials/header.html");
+   await cargar("layout-footer", "../partials/footer.html");
+
+   document.dispatchEvent(new Event("layout-cargado"));
+}
+
+cargarLayout();
+
+// --------
 async function obtenerAnimePorId(id) {
    const res = await fetch(`https://kitsu.io/api/edge/anime/${id}`);
    const data = await res.json();
    return data.data;
 }
 
+// Dibuja en el dom
 function mostrarAnime(anime) {
    const linkStream = anime.attributes.url;
    console.log(linkStream);
