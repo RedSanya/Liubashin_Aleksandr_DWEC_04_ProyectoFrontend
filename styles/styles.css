@@ -1,7 +1,7 @@
 :root {
    --main-accent: #FF4757; 
    --secondary-accent: #4BCFFA;
-   --main-bg: #F8F8F8;
+   --main-bg: #f8f8f8dc;
    --dark-bg: #141414;
    --secondary-bg: #333333;
    --secondary-dark-bg: #1f1f1f;
@@ -35,15 +35,10 @@ footer,header{
    flex-shrink: 0;
 }
 h1,section{
-   margin: 1rem;
+   margin: 1rem 0;
    padding: 1rem;
 }
 
-/* #layout-header,#layout-footer{
-   width: 100%;
-   display: flex;
-   justify-content: center;
-} */
 /* -----------Header----------------- */
 header{
    width: 80%;
@@ -95,7 +90,7 @@ header{
    text-decoration: none;
    color: var(--main-accent);
    transition: color 0.3s;
-   font-size: 1.25rem;
+   font-size: 1.5rem;
 
    display: flex;
    height: 100%;
@@ -151,6 +146,7 @@ main{
    /* width: 80%; */
    padding: 2rem;
    background-color: var(--main-bg);
+
    height: 100%;
    flex: 3;
 }
@@ -308,6 +304,86 @@ footer a:hover {
    background-color: var(--highlight-color);
 }
 
+/*-------- Anime detalles ------*/
+.anime-info-box {
+   font-size: 1.8rem;
+  display: flex;
+  gap: 2rem;
+  background-color: var(--secondary-bg);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  color: var(--main-bg);
+  margin-bottom: 2rem;
+}
+
+.anime-info-box .cover {
+  position: relative;
+  min-width: 200px;
+}
+
+.anime-info-box .cover img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.anime-info-box .episodios-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--main-accent);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.9rem;
+  border-radius: 0 5px 5px 0;
+  color: var(--main-bg);
+}
+
+.anime-info-box .info h1 {
+  font-size: 2.5rem;
+  color: var(--main-accent);
+  margin: 0;
+  padding: 1rem 0;
+
+}
+
+.info ul{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.info ul li {
+  margin-bottom: 0.5rem;
+}
+
+.descripcion {
+  line-height: 1.6;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.ver-ahora {
+  background-color: var(--main-accent);
+  color: var(--main-bg);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.ver-ahora:hover {
+  background-color: var(--highlight-color);
+}
+
+#reproductor{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
 
 /* @media 600 {
    

@@ -81,6 +81,8 @@ async function obtenerColeccionAnimes(categoria, offset = 0) {
  */
 function mostrarAnimes(animes) {
    const resultadoDiv = document.getElementById("resultado");
+   if (!resultadoDiv) return; // no hacer nada si no existe
+
    resultadoDiv.innerHTML = "";
 
    if (animes.length === 0) {
@@ -94,10 +96,10 @@ function mostrarAnimes(animes) {
 
       const img = document.createElement("img");
       img.src = anime.attributes.posterImage.original;
-      img.alt = anime.attributes.titles.en || anime.attributes.titles.ja_jp;
+      img.alt = anime.attributes.titles.en || anime.attributes.titles.en_jp;
 
       const titulo = document.createElement("h3");
-      titulo.textContent = anime.attributes.titles.en || anime.attributes.titles.ja_jp;
+      titulo.textContent = anime.attributes.titles.en || anime.attributes.titles.en_jp;
 
       const animeInfo = document.createElement("div");
       animeInfo.classList.add("anime-info");
@@ -140,6 +142,7 @@ async function mostrarColeccion(categoria, offset = 0) {
  */
 function actualizarPageNav(categoria) {
    const nav = document.getElementById("page-nav");
+   if (!nav) return;
    nav.innerHTML = ""; // Limpiar antes de agregar nuevos botones
 
    const totalPages = Math.ceil(totalResults / limit);

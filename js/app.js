@@ -1,4 +1,4 @@
-// Archivo: js/app.js
+
 import { buscarAnime, mostrarAnimes, mostrarColeccion } from "./kitsu-api.js";
 
 /**
@@ -33,7 +33,7 @@ async function handleSearch() {
    }
    // const animes = await buscarAnime(nombre);
    // mostrarAnimes(animes);
-   window.location.href = `index.html?buscar=${encodeURIComponent(nombre)}`;
+   window.location.href = `${window.location.origin}/index.html?buscar=${encodeURIComponent(nombre)}`;// Redirige al index.html en la raíz, sin importar desde qué página estés
 }
 
 // Agregar eventos cuando cargue el DOM
@@ -42,5 +42,5 @@ document.addEventListener("DOMContentLoaded", () => {
    cargarContenidoDesdeURL(); // Cargar recientes por defecto si no hay otra opción en la URL
 });
 
-//Evento para mostrar la pagina con Anime
-// document.getElementsByClassName("anime-info").document.addEventListener("click", verAnime);
+// Exportamos handleSearch (buscar anime) para poder realizar busqueda en otras paginas
+export { handleSearch };
