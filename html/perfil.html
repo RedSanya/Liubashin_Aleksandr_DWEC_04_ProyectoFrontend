@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Mi Perfil</title>
+   <link rel="stylesheet" href="/styles/styles.css">
+   <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+   <header id="layout-header"></header>
+
+   <div class="content">
+      <main class="perfil">
+         <section class="perfil-info">
+            <h1>Mi Perfil</h1>
+            <p><strong>Nombre de usuario:</strong> <span id="nombre-usuario">usuario123</span></p>
+            <p><strong>Email:</strong> <span id="email-usuario">usuario@example.com</span></p>
+            <button id="logout-btn">Cerrar sesión</button>
+         </section>
+      </main>
+   </div>
+
+   <footer id="layout-footer"></footer>
+
+   <script type="module">
+      import { cargarLayout } from '/js/app.js';
+      cargarLayout();
+   </script>
+   <script>
+      document.getElementById("logout-btn").addEventListener("click", function () {
+         localStorage.removeItem("usuario");
+         localStorage.setItem("userLogged", "false");
+         window.location.href = "/index.html";
+      });
+   </script>
+</body>
+
+</html>

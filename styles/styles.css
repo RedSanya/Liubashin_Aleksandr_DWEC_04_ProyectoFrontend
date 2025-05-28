@@ -210,7 +210,6 @@ main{
    font-size: 16px;
    cursor: pointer;
    border-radius: 4px;
-
    transition: background-color 0.2s;
 }
 
@@ -262,6 +261,7 @@ aside .card-news:hover{
    background-color: var(--highlight-color);
    scale: 1.1;
 }
+
 /* -------Footer--------- */
 footer{
    width: 80%;
@@ -397,6 +397,177 @@ footer a:hover {
    justify-content: center;
 }
 
-/* @media 600 {
-   
+/* Estilos para el formulario de contacto */
+.formulario-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--main-bg);
+  border: 1px solid var(--main-accent);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-contacto label {
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #fff;
+  resize: vertical;
+}
+
+.formulario-contacto button {
+  align-self: flex-start;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: var(--main-accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.formulario-contacto button:hover {
+  background-color: var(--highlight-color);
+}
+
+/* Estilos para derechos.html */
+.contenido-estatico {
+   max-width: 900px;
+}
+
+.texto-legal {
+   font-size: 1rem;
+   line-height: 1.6;
+}
+
+.texto-legal ul {
+   list-style: disc inside;
+   margin-top: 1rem;
+   padding-left: 1rem;
+}
+
+.texto-legal a {
+   color: var(--main-accent);
+   text-decoration: underline;
+}
+
+
+/* Diseño para pantallas pequeñas (smartphones) */
+@media (max-width: 600px) {
+   body {
+      padding-top: 100px;
+      padding-bottom: 100px;
+   }
+
+   header {
+      width: 100%;
+      flex-direction: column;
+      padding: 0.5rem;
+   }
+
+   .menu ul {
+      flex-direction: column;
+      gap: 1rem;
+   }
+
+   .content {
+      flex-direction: column;
+      width: 100%;
+   }
+
+   main {
+      padding: 1rem;
+   }
+
+   aside {
+      padding: 1rem;
+   }
+
+   .catalogo {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+   }
+
+   .anime-info-box {
+      flex-direction: column;
+      gap: 1rem;
+   }
+
+   .anime-info-box .cover {
+      width: 100%;
+   }
+
+   .anime-info-box .info h1 {
+      font-size: 2rem;
+   }
+
+   .descripcion {
+      font-size: 1.2rem;
+   }
+}
+
+/* Diseño para tablets */
+@media (max-width: 900px) {
+   header {
+      width: 100%;
+   }
+
+   .menu ul {
+      gap: 1rem;
+   }
+
+   .content {
+      width: 90%;
+   }
+
+   .catalogo {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+   }
+
+   .anime-info-box {
+      gap: 1.5rem;
+   }
+
+   .anime-info-box .info h1 {
+      font-size: 2.2rem;
+   }
+
+   .descripcion {
+      font-size: 1.4rem;
+   }
+}
+
+/* Diseño para pantallas grandes (desktop) */
+/* @media (min-width: 1200px) {
+   .content {
+      width: 80%;
+   }
+
+   .catalogo {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   }
+
+   .anime-info-box {
+      gap: 2rem;
+   }
+
+   .anime-info-box .info h1 {
+      font-size: 2.5rem;
+   }
+
+   .descripcion {
+      font-size: 1.5rem;
+   }
 } */

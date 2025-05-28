@@ -1,21 +1,7 @@
-import { handleSearch } from "./app.js";
+import { handleSearch, cargarLayout } from "./app.js";
 
 const params = new URLSearchParams(window.location.search);
 const animeId = params.get("id");
-
-async function cargarLayout() {
-   const cargar = async (id, archivo) => {
-      const res = await fetch(archivo);
-      const html = await res.text();
-      const contenedor = document.getElementById(id);
-      if (contenedor) contenedor.innerHTML = html;
-   };
-
-   await cargar("layout-header", "../partials/header.html");
-   await cargar("layout-footer", "../partials/footer.html");
-
-   document.dispatchEvent(new Event("layout-cargado"));
-}
 
 cargarLayout();
 

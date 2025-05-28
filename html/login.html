@@ -5,70 +5,50 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Inicia Sesión</title>
-   <link rel="stylesheet" href="/styles/login.css">
-   <link rel="stylesheet" href="/styles/styles.css">
+   <link rel="stylesheet" href="../styles/styles.css">
+   <link rel="stylesheet" href="../styles/login.css">
    <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-   <!-- ********Cabecera******** -->
-   <header>
-      <nav class="menu">
+   <header id="layout-header"></header>
 
-         <a href="/index.html" id="logo">
-            <!-- <img src="images/logo.webp" alt="logo de AnimeGalaxy"> -->
-         </a>
+   <div class="content">
+      <main class="login-container">
+         <h1>Inicia Sesión</h1>
+         <form action="#" method="post" id="login-form" class="formulario-contacto">
+            <label for="username">Nombre de usuario</label>
+            <input type="text" name="username" id="username" placeholder="Nombre de usuario" required>
 
-         <ul>
-            <li><a href="#">Catalogo</a></li>
-            <li><a href="#">Top-100</a></li>
-            <li><a href="#">Calendario OnGoing</a></li>
-         </ul>
+            <label for="passwd">Contraseña</label>
+            <input type="password" name="passwd" id="passwd" placeholder="Contraseña" required>
 
-         <form class="buscar" action="/buscar" method="get">
-            <input type="text" placeholder="Buscar anime..." name="q">
-            <button>
-               <!-- <img src="icons/lupa.png" alt="Buscar" style="height: 20px;"> -->
-            </button>
+            <button type="submit">Entrar</button>
+
+            <p id="mensaje" style="display: none; color: red; margin-top: 10px;"></p>
+
+            <div class="social-login">
+               <a href="#">Iniciar sesión con Facebook</a>
+               <a href="#">Iniciar sesión con Google</a>
+            </div>
          </form>
 
-         <div class="login-boton">
-            <a href="html/login.html">
-               <!-- <img src="icons/usuario.png" alt="login"> -->
-            </a>
+         <div class="extra-links">
+            <a href="#">&#191;Olvidaste tu contraseña?</a> |
+            <a href="#">&#161;Regístrate!</a>
          </div>
-      </nav>
-   </header>
+      </main>
+   </div>
 
-   <!-- *******Main******** -->
-   <main>
-      <h1>Inicia Sesión</h1>
-      <form action="/login" method="post" id="login">
-         <input type="text" name="username" id="username" placeholder="Nombre de usuario" required>
-         <input type="password" name="passwd" id="passwd" placeholder="Contraseña" required>
-         <button type="submit">Entrar</button>
-         <a href="#">INICIAR SESIÓN CON FACEBOOK</a>
-         <a href="#">INICIAR SESIÓN CON GOOGLE</a>
-      </form>
+   <footer id="layout-footer"></footer>
 
-      <a href="#">¡Registrate!</a>
-      <a href="#">¿Olvidó su contraseña?</a>
-   </main>
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+   <script type="module">
+      import { cargarLayout } from '../js/app.js';
+      cargarLayout();
+   </script>
+   <script type="module" src="../js/login.js"></script>
 
-   <!-- ********Footer******** -->
-   <footer>
-      <p>Todos los videos en el sitio AnimeGalaxy se proporcionan solo con fines informativos.</p>
-
-      <nav>
-         <ul>
-            <li><a href="#">Política de privacidad</a></li>
-            <li><a href="#">Para los titulares de derechos</a></li>
-            <li><a href="#">Contactos</a></li>
-         </ul>
-      </nav>
-
-      <p>2025</p>
-   </footer>
 </body>
 
 </html>

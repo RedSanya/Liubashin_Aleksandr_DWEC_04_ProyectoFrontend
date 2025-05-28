@@ -109,6 +109,16 @@ function mostrarAnimes(animes) {
          ? anime.attributes.synopsis.substring(0, 200) + "..."
          : "Sin descripción disponible.";
 
+      //--------------- Traducir el texto de la descripción-----------
+      // const descripcion = document.createElement("p");
+      // const textoOriginal = anime.attributes.synopsis
+      //    ? anime.attributes.synopsis.substring(0, 200)
+      //    : "Sin descripción disponible.";
+
+      // traducirTexto(textoOriginal).then(textoTraducido => {
+      //    descripcion.textContent = textoTraducido + "...";
+      // });
+
       const boton = document.createElement("button");
       boton.textContent = "Ver Anime";
       boton.addEventListener("click", () => verAnime(anime.id));
@@ -198,6 +208,28 @@ function seleccionarAleatorios(lista, cantidad) {
    const shuffled = lista.sort(() => 0.5 - Math.random());
    return shuffled.slice(0, cantidad);
 }
+
+// Función para traducir texto usando LibreTranslate
+// async function traducirTexto(texto, source = "en", target = "es") {
+//    try {
+//       const res = await fetch("https://libretranslate.de/translate", {
+//          method: "POST",
+//          headers: { "Content-Type": "application/json" },
+//          body: JSON.stringify({
+//             q: texto,
+//             source,
+//             target,
+//             format: "text"
+//          })
+//       });
+
+//       const data = await res.json();
+//       return data.translatedText;
+//    } catch (error) {
+//       console.error("Error al traducir:", error);
+//       return texto; // Fallback: mostrar original si falla
+//    }
+// }
 
 // Exportamos funciones
 export { buscarAnime, mostrarAnimes, obtenerColeccionAnimes, mostrarColeccion, seleccionarAleatorios };

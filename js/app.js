@@ -1,9 +1,7 @@
 
 import { buscarAnime, mostrarAnimes, mostrarColeccion } from "./kitsu-api.js";
 
-/**
- * Función para cargar contenido basado en los parámetros de la URL
- */
+//Función para cargar contenido basado en los parámetros de la URL
 async function cargarContenidoDesdeURL() {
    const params = new URLSearchParams(window.location.search);
    const categoria = params.get("categoria");
@@ -19,9 +17,8 @@ async function cargarContenidoDesdeURL() {
       await mostrarColeccion("recientes");
    }
 }
-/**
- * Manejador del evento de búsqueda
- */
+
+//Manejador del evento de búsqueda
 async function handleSearch(e) {
    e.preventDefault();
 
@@ -76,7 +73,23 @@ async function cargarNoticiasAnime() {
    }
 }
 
+// Carga el layout de la página
+async function cargarLayout() {
+   const cargar = async (id, archivo) => {
+      const res = await fetch(archivo);
+      const html = await res.text();
+      const contenedor = document.getElementById(id);
+      if (contenedor) contenedor.innerHTML = html;
+   };
 
+   await cargar("layout-header", "../partials/header.html");
+   await cargar("layout-footer", "../partials/footer.html");
+
+   actualizarBotonLogin();
+   document.dispatchEvent(new Event("layout-cargado"));
+}
+
+//comprueba que se cargan los elementos de header y footer y entonces se establecen los eventos de busqueda
 document.addEventListener("layout-cargado", () => {
    const form = document.getElementById("buscarForm") || document.getElementById("buscar-form");
    if (form) {
@@ -86,9 +99,22 @@ document.addEventListener("layout-cargado", () => {
 
 // Agregar eventos cuando cargue el DOM
 document.addEventListener("DOMContentLoaded", () => {
+   cargarLayout();
    cargarNoticiasAnime();
    cargarContenidoDesdeURL(); // Cargar recientes por defecto si no hay otra opción en la URL
 });
 
-// Exportamos handleSearch (buscar anime) para poder realizar busqueda en otras paginas
-export { handleSearch };
+function actualizarBotonLogin() {
+   const loginDiv = document.querySelector(".login-boton");
+
+   if (!loginDiv) return;
+
+   const logged = localStorage.getItem("userLogged") === "true";
+
+   loginDiv.innerHTML = logged
+      ? `<a href="/html/perfil.html"><img src="/icons/icono_perfil.png" alt="Perfil"></a>`
+      : `<a href="/html/login.html"><img src="/icons/usuario.png" alt="Login"></a>`;
+}
+
+// Exportamos handleSearch (buscar anime) para poder realizar busqueda en otras paginas y cargar header y footer
+export { handleSearch, cargarLayout };
