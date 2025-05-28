@@ -82,8 +82,8 @@ async function cargarLayout() {
       if (contenedor) contenedor.innerHTML = html;
    };
 
-   await cargar("layout-header", "../partials/header.html");
-   await cargar("layout-footer", "../partials/footer.html");
+   await cargar("layout-header", "/partials/header.html");
+   await cargar("layout-footer", "/partials/footer.html");
 
    actualizarBotonLogin();
    document.dispatchEvent(new Event("layout-cargado"));
@@ -112,8 +112,8 @@ function actualizarBotonLogin() {
    const logged = localStorage.getItem("userLogged") === "true";
 
    loginDiv.innerHTML = logged
-      ? `<a href="./html/perfil.html"><img src="/icons/icono_perfil.png" alt="Perfil"></a>`
-      : `<a href="./html/login.html"><img src="/icons/usuario.png" alt="Login"></a>`;
+      ? `<a href="perfil.html"><img src="/icons/icono_perfil.png" alt="Perfil"></a>`
+      : `<a href="login.html"><img src="/icons/usuario.png" alt="Login"></a>`;
 }
 
 // Exportamos handleSearch (buscar anime) para poder realizar busqueda en otras paginas y cargar header y footer

@@ -195,7 +195,7 @@ function actualizarPageNav(categoria) {
  * @param {number} animeId - ID del anime
  */
 function verAnime(animeId) {
-   window.location.href = `html/anime.html?id=${animeId}`;
+   window.location.href = `anime.html?id=${animeId}`;
 }
 
 /**
