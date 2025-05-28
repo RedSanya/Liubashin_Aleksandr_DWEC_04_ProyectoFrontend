@@ -29,7 +29,7 @@ async function handleSearch(e) {
    }
 
    const nombre = input.value.trim();
-   window.location.href = `${window.location.origin}/index.html?buscar=${encodeURIComponent(nombre)}`;
+   window.location.href = `index.html?buscar=${encodeURIComponent(nombre)}`;
 }
 
 
