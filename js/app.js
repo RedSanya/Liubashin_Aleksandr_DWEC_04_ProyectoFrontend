@@ -112,8 +112,8 @@ function actualizarBotonLogin() {
    const logged = localStorage.getItem("userLogged") === "true";
 
    loginDiv.innerHTML = logged
-      ? `<a href="perfil.html"><img src="/icons/icono_perfil.png" alt="Perfil"></a>`
-      : `<a href="login.html"><img src="/icons/usuario.png" alt="Login"></a>`;
+      ? `<a href="perfil.html"><img src="icons/icono_perfil.png" alt="Perfil"></a>`
+      : `<a href="login.html"><img src="icons/usuario.png" alt="Login"></a>`;
 }
 
 // Exportamos handleSearch (buscar anime) para poder realizar busqueda en otras paginas y cargar header y footer
