@@ -12,6 +12,12 @@ async function cargarContenidoDesdeURL() {
    } else if (busqueda) {
       const animes = await buscarAnime(busqueda);
       mostrarAnimes(animes);
+
+      // Actualizamos el h1 para reflejar la búsqueda
+      const h1 = document.querySelector("h1");
+      if (h1) {
+         h1.textContent = `Resultados de búsqueda para: ${busqueda}`;
+      }
    } else {
       // Si no hay categoría ni búsqueda, mostramos "Recientes" por defecto
       await mostrarColeccion("recientes");

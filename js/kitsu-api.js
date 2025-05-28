@@ -2,6 +2,7 @@
 let currentOffset = 0; // Paginación actual
 const limit = 20; // Máximo permitido por Kitsu API
 let totalResults = 100; // Se actualizará dinámicamente con la API
+let h1Text = "Animes"; // Título por defecto
 
 /**
  * Función para buscar un anime por nombre con paginación
@@ -38,21 +39,32 @@ async function obtenerColeccionAnimes(categoria, offset = 0) {
    switch (categoria) {
       case "top100":
          url += "&sort=popularityRank";
+         h1Text = "Top 100 Animes";
+         document.querySelector("h1").textContent = h1Text; // Actualiza el título de la página
          break;
       case "mejorCalificados":
          url += "&sort=-averageRating";
+         h1Text = "Mejor Calificados";
+         document.querySelector("h1").textContent = h1Text;
          break;
       case "recientes":
          url += "&sort=-createdAt";
+         h1Text = "Animes Recientes";
+         document.querySelector("h1").textContent = h1Text;
          break;
       case "ongoing":
          url += "&filter[status]=current";
+         h1Text = "Animes en Emisión";
+         document.querySelector("h1").textContent = h1Text;
          break;
       case "random":
          url += "&sort=popularityRank";
+         h1Text = "Anime Aleatorio";
+         document.querySelector("h1").textContent = h1Text;
          break;
       default:
          console.error("Categoría de colección no válida.");
+         document.querySelector("h1").textContent = h1Text;
          return [];
    }
 
@@ -155,7 +167,12 @@ function actualizarPageNav(categoria) {
    if (!nav) return;
    nav.innerHTML = ""; // Limpiar antes de agregar nuevos botones
 
-   const totalPages = Math.ceil(totalResults / limit);
+   // Límite máximo de páginas si es Top 100
+   let totalPages = Math.ceil(totalResults / limit);
+   if (categoria === "top100") {
+      totalPages = 5; // máximo 100 resultados con 20 por página
+   }
+
    const currentPage = Math.floor(currentOffset / limit) + 1;
    const visiblePages = 5; // Número de páginas visibles
 
@@ -166,7 +183,7 @@ function actualizarPageNav(categoria) {
    prevButton.onclick = () => mostrarColeccion(categoria, Math.max(0, currentOffset - limit));
    nav.appendChild(prevButton);
 
-   //  Números de Página
+   // Números de Página
    let startPage = Math.max(1, currentPage - Math.floor(visiblePages / 2));
    let endPage = Math.min(totalPages, startPage + visiblePages - 1);
 
@@ -182,11 +199,15 @@ function actualizarPageNav(categoria) {
       nav.appendChild(pageButton);
    }
 
-   //  Botón "Siguiente"
+   // Botón "Siguiente"
    const nextButton = document.createElement("button");
    nextButton.textContent = "Siguiente";
-   nextButton.disabled = currentOffset + limit >= totalResults;
-   nextButton.onclick = () => mostrarColeccion(categoria, currentOffset + limit);
+   nextButton.disabled = currentPage >= totalPages;
+   nextButton.onclick = () => {
+      if (currentPage < totalPages) {
+         mostrarColeccion(categoria, currentOffset + limit);
+      }
+   };
    nav.appendChild(nextButton);
 }
 

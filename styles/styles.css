@@ -553,15 +553,16 @@ footer a:hover {
    .card h3{
       font-size: 1rem;
    }
+   .buscar{
+      width: 120px;
+   }
    .buscar input {
       width: 100%;
       padding: 0.5rem;
    }
 
    .buscar button {
-      position: static;
-      width: 100%;
-      margin-top: 0.5rem;
+      padding: 1px;
    }
 
    .login-boton {
