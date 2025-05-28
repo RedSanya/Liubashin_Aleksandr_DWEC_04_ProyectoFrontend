@@ -82,8 +82,8 @@ async function cargarLayout() {
       if (contenedor) contenedor.innerHTML = html;
    };
 
-   await cargar("layout-header", "/partials/header.html");
-   await cargar("layout-footer", "/partials/footer.html");
+   await cargar("layout-header", "partials/header.html");
+   await cargar("layout-footer", "partials/footer.html");
 
    actualizarBotonLogin();
    document.dispatchEvent(new Event("layout-cargado"));
